@@ -1,0 +1,134 @@
+/* app css stylesheet */
+
+
+
+.swal2-overlay{
+    z-index: 10060 !important;
+}
+
+.swal2-modal {
+    z-index: 10061 !important;
+}
+
+#addProductPopup .modal-content,
+#addProductPopup .row {
+    margin: 15px 10px;
+}
+
+#addProductPopup .row>div>input,
+#addProductPopup .row>div>select {
+    width: 100%;
+    padding: 3px 5px;
+}
+
+
+#addProductPopup .row>div>input::placeholder {
+    color: #bbb;
+}
+
+#addProductPopup .row>div:nth-child(2)::before {
+    content: ":";
+    left: -5px;
+    position: absolute;
+    font-weight: 900;
+}
+
+#addProductPopup #myModalLabel {
+    font-weight: 500;
+    color: #ff870c;
+    margin-left: 25px;
+    font-size: 18px;
+}
+
+#addProductPopup .modal-close {
+    width: 25px;
+    height: 25px;
+	-webkit-appearance: none;
+	cursor: pointer;
+}
+
+#addProductPopup input#productPrice {
+    width: 65px !important;
+    text-align: center;
+}
+
+#addProductPopup {
+  text-align: center;
+  padding: 0!important;
+}
+
+#addProductPopup:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+#addProductPopup .modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+#addProductPopup li.bootstrap-select-presentation-data:nth-child(2n) {
+    background: #f9f9f9;
+}
+
+#addProductPopup li.bootstrap-select-presentation-data:hover,
+#addProductPopup li.bootstrap-select-presentation-data a:hover  {
+    background: #bcdad7;
+}
+
+#addProductPopup li.bootstrap-select-presentation-data a span  {
+    font-weight: 400;
+}
+
+#deleteProduct{
+	font-size: 14px;
+}
+
+bootstrapselect.full-width,
+bootstrapselect.full-width .dropdown > .dropdown-toggle, .dropup.open>.dropdown-toggle,
+bootstrapselect.full-width .dropdown-menu {
+	width: 100%;
+}
+
+bootstrapselect.full-width .dropdown > .dropdown-toggle > span.pull-left {
+    width: 90% !important;
+}
+
+bootstrapselect[option-dynamic-creation="true"].full-width .dropdown-menu {
+    top:-10px;
+}
+
+bootstrapselect.full-width div.dropdown > button{
+	min-height: 32px;
+}
+
+.sticky-footer {
+	position: sticky; 
+	bottom: 0; 
+	display: block; 
+	height: 100%; 
+	min-height: 50px; 
+	background: #f9f9f9;
+}
+
+.sticky-box {
+	border: 1px solid;
+	background: #fff;
+}
+
+.sticky-box-opener {
+	padding: 5px;
+	height: 50px;
+}
+
+button {
+	background: #eee;
+	margin:5px !important;
+	font-size: 12px!important;
+	border-radius: 2px;
+}
+

@@ -1,0 +1,62 @@
+﻿<div class="modal modal-add-product" id="addProductPopup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-md" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<a ng-click="DemandForm_VM.categoryIdToSelect = null" class="modal-close pull-right" type="button" data-dismiss="modal" aria-label="Close">X</a>
+				<p class="modal-title-modified" id="myModalLabel">
+					<span ng-show="!DemandForm_VM.editingDraft">Yeni Ürün Ekle</span>
+					<span ng-show="DemandForm_VM.editingDraft">Düzenle</span>
+				</p>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-4">Menü Başlık</div>
+					<div class="col-md-8">
+						<bootstrapselect ng-if="DemandForm_VM.categoryIdToSelect" id="categorySelectBox" class="full-width" ng-model="DemandForm_VM.newProduct.categoryId" source-data="DemandForm_VM.categories" value-property="Id" title-property="Name" option-view-limit="10" option-selected-value="DemandForm_VM.newProduct.categoryId">
+						</bootstrapselect>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4">Ürün Adı</div>
+					<div class="col-md-8">
+						<input type="text" id="productName" placeholder="Ürün Adı Giriniz" ng-change="DemandForm_VM.onNewProductNameChange()" ng-model="DemandForm_VM.newProduct.name" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4">Fiyat</div>
+					<div class="col-md-8">
+						<input type="text" id="productPrice" ng-model="DemandForm_VM.newProduct.price" />
+						<span>TL</span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-4">Açıklama</div>
+					<div class="col-md-8">
+						<input type="text" id="productDescription" ng-model="DemandForm_VM.newProduct.description" placeholder="Örn. Köfte Dürüm + Patates Kızartması + Ayran (18 cl)" />
+					</div>
+				</div>
+
+				<hr>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="pull-right">
+							<button id="createProduct" class="btn btn-orange" ng-disabled="!DemandForm_VM.newProduct.name || !DemandForm_VM.newProduct.price" ng-click="DemandForm_VM.saveDraftProduct()">
+								<i ng-show="!DemandForm_VM.editingDraft" class="fa fa-plus"></i>
+								<span ng-show="!DemandForm_VM.editingDraft">ÜRÜN EKLE</span>
+								<span ng-show="DemandForm_VM.editingDraft">ÜRÜNÜ GÜNCELLE</span>
+							</button>
+							<button id="deleteProduct" class="btn btn-red" ng-if="DemandForm_VM.editingDraft" ng-click="DemandForm_VM.deleteDraftProduct()">
+								<i class="fa fa-remove"></i>
+								<span>ÜRÜNÜ SİL</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

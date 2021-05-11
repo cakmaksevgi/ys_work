@@ -1,0 +1,39 @@
+<div class="sticky-footer">
+
+	<div class="sticky-box" ng-if="DemandForm_VM.showDemandSummary && DemandForm_VM.isDemandExist">
+		<h4>TALEPLERİM</h4>
+		<div aria-expanded="true">
+			<table class="table" width="100%">
+				<thead>
+					<tr>
+						<th width="35%">Ürün Adı</th>
+						<th width="35%">Açıklama</th>
+						<th width="15%" class="text-right">Mevcut Fiyat</th>
+						<th width="15%" class="text-center red-text">Yeni Fiyat</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="(key, value) in DemandForm_VM.demandRequestObjects">
+						<td ng-bind="DemandForm_VM.demandRequestObjects[key].Name"></td>
+						<td ng-bind="DemandForm_VM.demandRequestObjects[key].Description"></td>
+						<td class="text-right">{{DemandForm_VM.demandRequestObjects[key].Price}} TL</td>
+						<td class="text-right">{{DemandForm_VM.demandRequestObjects[key].newprice || DemandForm_VM.demandRequestObjects[key].Price}} TL</td>
+						<td width="90">
+							<button ng-click="DemandForm_VM.Product.moveToProduct(DemandForm_VM.demandRequestObjects[key])">Değiştir</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="sticky-box-opener">
+
+		<button class="btn pull-right" ng-click="DemandForm_VM.submitForm()">
+			<span >KAYDET</span>
+		</button>
+		<button class="btn pull-left" ng-disabled="!DemandForm_VM.isDemandExist" ng-click="DemandForm_VM.showDemandSummary=(DemandForm_VM.showDemandSummary)?false:true;">
+			<span class="hidden-sm hidden-xs">TALEPLERİM </span> <span class="badge badge-warning" ng-show="DemandForm_VM.isDemandExist" ng-bind="DemandForm_VM.demandCount"></span>
+		</button>
+	</div>
+</div>

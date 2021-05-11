@@ -1,0 +1,37 @@
+﻿
+<div class="dropdown" style="min-width:{{configWidth || 100}}px;">
+  
+    <button onclick="var that = this; setTimeout(function () { $(that.parentElement).find('#search-text').trigger('focus'); }, 1);" ng-class="{'disabled':!presentationData || presentationData.length === 0 }" class="btn btn-default dropdown-toggle text-left" type="button" id="menu1" data-toggle="dropdown" style="min-width:{{configWidth || 100}}px;" data-html="true">      
+        <span class="pull-left text-left" ng-if="!optionMultiSelect" style="width:{{(configWidth)?configWidth-30:70}}px;overflow:hidden;">            
+			{{(selectedItem !== null)?selectedItem.title:selectLabel}}
+        </span>
+        <span class="pull-left text-left" ng-if="optionMultiSelect" style="width:{{(configWidth)?configWidth-30:70}}px;overflow:hidden;" >
+            {{(multiSelectedItemList().length > 0)?multiSelectedItemList().length+' adet seçim yapıldı':configDefaultLabel}}
+        </span>
+        <span class="caret pull-right" style="margin-top:8px !important;margin-left:10px;"></span>     
+    </button>
+
+   
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="overflow-y:auto;max-height:{{optionViewLimit*34}}px;min-width:{{configWidth || 100}}px;" >
+       <!--  Search  -->
+       <li ng-if="optionSearch"  style="position:absolute;width:100%;z-index:2;">
+            <input type="text" class="full-width" id="search-text" ng-focus="resetArrowTraveling()" ng-model="context.searchText" ng-change="applySearchKeyFilter(context.searchText)"  placeholder="Ara..." style="height:35px;padding:5px;" />
+       </li>
+       <li ng-if="optionSearch" style="height:35px;">
+
+       </li>
+        <!-- /Search -->
+        <li class="bootstrap-select-presentation-data"  ng-repeat="item in presentationData | limitTo : recordViewInitialLimit : 0 track by $index"  > 
+      
+            <!--  Multi Select  -->
+            <div style="position:absolute;margin-top: 6px;margin-left:5px;cursor:pointer !important;z-index:1;" ng-if="optionMultiSelect">
+                <input class="pull-left" type="checkbox" ng-model="item.selected" plugin-uniform  ng-click="(item.reserved)?item.___function():exportSelectedsToNgmodel()" />
+            </div>   
+            <!-- /Multi Select  -->
+            <a class="noselect {{item._class}}" ng-class="{'btn disabled':item.disabled}" href="" style="margin-left:13px;cursor:pointer !important;z-index:-500" ng-click="select(item,$event)" >
+				{{item.title}}
+            </a>
+        </li>      
+    </ul>
+  
+</div>

@@ -1,0 +1,371 @@
+{
+	"Result": [
+	{
+		"Id": "Category-01",
+		"Name": "Kebaplar",
+		"UniqueName": "Kebaplar",
+		"Type": 0,
+		"IsOpen": true,
+		"IsSpecialCategory": false,
+		"Products": [
+		{
+			"CategoryId": "Category-01",
+			"ProductId": "C1-Product-0001",
+			"Name": "Adana Kebap",
+			"Description": "120 gr.",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 26.0000
+		},
+		{
+			"CategoryId": "Category-01",
+			"ProductId": "C1-Product-0002",
+			"Name": "Alinazik Kebap",
+			"Description": "180 gr.",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 40.0000
+		},
+		{
+			"CategoryId": "Category-01",
+			"ProductId": "C1-Product-0003",
+			"Name": "Kuşbaşı Kebap",
+			"Description": "120 gr.",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 30.0000
+		},
+		{
+			"CategoryId": "Category-01",
+			"ProductId": "C1-Product-0004",
+			"Name": "Külbastı",
+			"Description": "130 gr dana bonfile",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 35.0000
+		},
+		{
+			"CategoryId": "Category-01",
+			"ProductId": "C1-Product-0005",
+			"Name": "Patlıcan Kebap",
+			"Description": "120 gr.",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 40.0000
+		},
+		{
+			"CategoryId": "Category-01",
+			"ProductId": "C1-Product-0006",
+			"Name": "Yağlı Kara",
+			"Description": "120 gr. özel yağlı parça et ile",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 35.0000
+		}]
+	},
+	{
+		"Id": "Category-02",
+		"Name": "Izgaralar",
+		"UniqueName": "Izgaralar",
+		"Type": 0,
+		"IsOpen": true,
+		"IsSpecialCategory": false,
+		"Products": [
+		{
+			"CategoryId": "Category-02",
+			"ProductId": "C2-Product-0001",
+			"Name": "Ciğer Şiş",
+			"Description": "120 gr.",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 30.0000
+		},
+		{
+			"CategoryId": "Category-02",
+			"ProductId": "C2-Product-0002",
+			"Name": "Çöp Şiş",
+			"Description": "120 gr.",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 30.0000
+		},
+		{
+			"CategoryId": "Category-02",
+			"ProductId": "C2-Product-0003",
+			"Name": "Piliç Izgara",
+			"Description": "250 gr.",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 24.0000
+		},
+		{
+			"CategoryId": "Category-02",
+			"ProductId": "C2-Product-0004",
+			"Name": "Piliç Kanat",
+			"Description": "200 gr.",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 24.0000
+		},
+		{
+			"CategoryId": "Category-02",
+			"ProductId": "C2-Product-0005",
+			"Name": "Piliç Şiş",
+			"Description": "200 gr.",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 24.0000
+		}]
+	},
+	{
+		"Id": "Category-03",
+		"Name": "Dürümler",
+		"UniqueName": "Durumler",
+		"Type": 0,
+		"IsOpen": true,
+		"IsSpecialCategory": false,
+		"Rank": 3,
+		"Products": [
+		{
+			"CategoryId": "Category-03",
+			"ProductId": "C3-Product-0001",
+			"Name": "Adana Dürüm",
+			"Description": "120 gr.",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 26.0000
+		},
+		{
+			"CategoryId": "Category-03",
+			"ProductId": "C3-Product-0002",
+			"Name": "Ciğer Şiş Dürüm",
+			"Description": "120 gr.",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 30.0000
+		},
+		{
+			"CategoryId": "Category-03",
+			"ProductId": "C3-Product-0003",
+			"Name": "Çöp Şiş Dürüm",
+			"Description": "120 gr.",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 30.0000
+		},
+		{
+			"CategoryId": "Category-03",
+			"ProductId": "C3-Product-0004",
+			"Name": "Kuşbaşı Dürüm",
+			"Description": "120 gr.",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 30.0000
+		},
+		{
+			"CategoryId": "Category-03",
+			"ProductId": "C3-Product-0005",
+			"Name": "Piliç Şiş Dürüm",
+			"Description": "120 gr.",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 24.0000
+		}]
+	},
+	{
+		"Id": "Category-04",
+		"Name": "Lahmacun & Pideler",
+		"UniqueName": "LahmacunPideler",
+		"Type": 0,
+		"IsOpen": true,
+		"IsSpecialCategory": false,
+		"Rank": 4,
+		"Products": [
+		{
+			"CategoryId": "Category-04",
+			"ProductId": "C4-Product-0001",
+			"Name": "Antep Usulü Lahmacun (Adet)",
+			"Description": "...",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 14.0000
+		},
+		{
+			"CategoryId": "Category-04",
+			"ProductId": "C4-Product-0002",
+			"Name": "Etli Pide",
+			"Description": "...",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 32.0000
+		},
+		{
+			"CategoryId": "Category-04",
+			"ProductId": "C4-Product-0003",
+			"Name": "Fındık Lahmacun (Adet)",
+			"Description": "...",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 3.0000
+		},
+		{
+			"CategoryId": "Category-04",
+			"ProductId": "C4-Product-0004",
+			"Name": "Fındık Peynirli Pide (Adet)",
+			"Description": "...",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 3.0000
+		},
+		{
+			"CategoryId": "Category-04",
+			"ProductId": "C4-Product-0005",
+			"Name": "Lahmacun (5 Adet)",
+			"Description": "...",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 26.0000
+		},
+		{
+			"CategoryId": "Category-04",
+			"ProductId": "C4-Product-0006",
+			"Name": "Peynirli Pide (5 Adet)",
+			"Description": "....",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 26.0000
+		}]
+	},
+	{
+		"Id": "Category-05",
+		"Name": "İçecekler",
+		"UniqueName": "Icecekler",
+		"Type": 0,
+		"IsOpen": true,
+		"IsSpecialCategory": false,
+		"Rank": 9,
+		"Products": [
+		{
+			"CategoryId": "Category-05",
+			"ProductId": "C5-Product-0001",
+			"Name": "Ayran (30 cl.)",
+			"Description": "...",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 5.0000
+		},
+		{
+			"CategoryId": "Category-05",
+			"ProductId": "C5-Product-0002",
+			"Name": "Cappy (33 cl.)",
+			"Description": "...",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 5.0000
+		},
+		{
+			"CategoryId": "Category-05",
+			"ProductId": "C5-Product-0003",
+			"Name": "Coca-Cola (33 cl.)",
+			"Description": "...",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 6.0000
+		},
+		{
+			"CategoryId": "Category-05",
+			"ProductId": "C5-Product-0004",
+			"Name": "Coca-Cola Light (33 cl.)",
+			"Description": "...",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 6.0000
+		},
+		{
+			"CategoryId": "Category-05",
+			"ProductId": "C5-Product-0005",
+			"Name": "Coca-Cola Şekersiz (33 cl.)",
+			"Description": "...",
+			"Status": 4,
+			"StatusText": "Gosterme",
+			"IsSpecialProduct": false,
+			"Price": 6.0000
+		},
+		{
+			"CategoryId": "Category-05",
+			"ProductId": "C5-Product-0006",
+			"Name": "Fanta (33 cl.)",
+			"Description": "...",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 6.0000
+		},
+		{
+			"CategoryId": "Category-05",
+			"ProductId": "C5-Product-0007",
+			"Name": "Nestea (33 cl.)",
+			"Description": "...",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 6.0000
+		},
+		{
+			"CategoryId": "Category-05",
+			"ProductId": "C5-Product-0008",
+			"Name": "Sprite (33 cl.)",
+			"Description": "...",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 6.25
+		},
+		{
+			"CategoryId": "Category-05",
+			"ProductId": "C5-Product-0009",
+			"Name": "Su (0.5 L.)",
+			"Description": "...",
+			"Status": 2,
+			"StatusText": "Kapali",
+			"IsSpecialProduct": false,
+			"Price": 2.50
+		},
+		{
+			"CategoryId": "Category-05",
+			"ProductId": "C5-Product-0010",
+			"Name": "Şalgam Suyu (33 cl.)",
+			"Description": "...",
+			"Status": 1,
+			"StatusText": "Acik",
+			"IsSpecialProduct": false,
+			"Price": 5.35
+		}]
+	}]
+}
