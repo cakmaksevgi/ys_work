@@ -1,0 +1,60 @@
+@import '../app.css';
+
+$ys-btn-bg-color: darkorange;
+$ys-btn-color: white;
+$ys-border-color: 1px solid #ddd;
+
+.btn-orange {
+    background-color: $ys-btn-bg-color;
+    color: $ys-btn-color;
+    font-size: smaller;
+
+    &:hover {
+        color: white;
+    }
+}
+.container {
+    border: 3px solid #ddddddc9;
+}
+.collapse:not(.in) {
+        display: none !important;
+}
+.collapse.in {
+        display: block !important;
+}
+.product-container {
+    border: $ys-border-color;
+    padding: 5px;
+    margin-bottom: 10px;
+
+    .category-name {
+        font-size: large;
+        font-weight: 600;
+    }
+
+    .portlet-body {
+        padding: 0.375rem 0.75rem;
+    }
+
+    .table-container {
+        border-top: $ys-border-color;
+    }
+}
+button {
+    padding: 0;
+    margin: 0;
+}
+.btn {
+    line-height: 1.2;
+
+    &:focus {
+        box-shadow: none;
+    }
+}
+.modal-backdrop {
+    opacity: 0.5;
+}
+p {
+    margin-bottom: 0;
+}
+   

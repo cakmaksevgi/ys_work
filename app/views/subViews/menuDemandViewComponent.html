@@ -1,16 +1,17 @@
 ﻿<div ng-repeat="category in DemandForm_VM.categories">
-	<div>
-		<div class="portlet-title wrap-floateds _{{category.Id}}" data-target="category.collapseId" id="{{category.UniqueName}}" data-toggle="collapse" data-parent="#accordion1" aria-expanded="true">
-			<div class="caption">
-				<h4 class="pull-left ">{{category.Name}}</h4>
+	<div class="product-container">
+		<div id="{{category.UniqueName}}">
+			<div class="d-flex" id="collapse{{category.Id}}">
+				<button class="btn" data-toggle="collapse" data-target="#{{category.Id}}" aria-expanded="true" aria-controls="{{category.Id}}">
+					<span class="category-name">{{category.Name}}</span>
+				</button>
 				<button id="addProduct" class="btn btn-orange" ng-click="DemandForm_VM.addNewProduct(category.Id)">
 					<i class="fa fa-plus"></i> ÜRÜN EKLE
 				</button>
 			</div>
-			
 	
 		</div>
-		<div id="collapseId" class="panel-collapse collapse in __{{category.Id}}" aria-expanded="true">
+		<div id="{{category.Id}}" class="table-container mt-2 collapse in" aria-labelledby="collapse{{category.Id}}" data-parent="#{{category.UniqueName}}">
 			<div class="portlet-body">
 				<table class="table table-hover">
 					<thead>
@@ -18,7 +19,9 @@
 							<th width="35%">Ürün Adı</th>
 							<th width="35%">Açıklama</th>
 							<th width="15%" class="text-right">Mevcut Fiyat</th>
-							<th width="15%" class="text-center">Yeni Fiyat</th>
+							<th width="15%" class="text-center">
+								<span style="color: red">Yeni Fiyat</span>
+							</th>
 						</tr>
 					</thead>
 					<tbody>

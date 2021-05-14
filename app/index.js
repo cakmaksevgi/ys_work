@@ -9,6 +9,8 @@ import "./js/plugins/lodash.min.js"
 import "./js/angular/angular.min.js"
 import "./js/angular/angular-route.min.js"
 
+import "bootstrap/dist/js/bootstrap.bundle"
+
 // get app.js and start application
 import "./app.js"
 
@@ -20,6 +22,6 @@ import "./js/directives/bootstrapselectv2.directive.js"
 
 // css
 import "./css/normalize.css"
-import "./app.css"
 import "bootstrap/dist/css/bootstrap.css"
 import "./css/sweetalert2.css"
+import "./css/product.scss"

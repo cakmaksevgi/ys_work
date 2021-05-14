@@ -13,6 +13,7 @@
 #addProductPopup .modal-content,
 #addProductPopup .row {
     margin: 15px 10px;
+    min-width: 400px;
 }
 
 #addProductPopup .row>div>input,
@@ -36,7 +37,6 @@
 #addProductPopup #myModalLabel {
     font-weight: 500;
     color: #ff870c;
-    margin-left: 25px;
     font-size: 18px;
 }
 
@@ -45,6 +45,8 @@
     height: 25px;
 	-webkit-appearance: none;
 	cursor: pointer;
+    text-decoration: none;
+    color: initial;
 }
 
 #addProductPopup input#productPrice {
@@ -123,12 +125,5 @@ bootstrapselect.full-width div.dropdown > button{
 .sticky-box-opener {
 	padding: 5px;
 	height: 50px;
-}
-
-button {
-	background: #eee;
-	margin:5px !important;
-	font-size: 12px!important;
-	border-radius: 2px;
 }
 
