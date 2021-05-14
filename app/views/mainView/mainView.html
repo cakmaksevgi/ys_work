@@ -1,22 +1,24 @@
 <div ng-cloak ng-controller="MenuDemandFormController as DemandForm_VM">
 
-
 	<div id="searchBox" style="margin: 20px 0">
 		<input type="text" id="stbox" class="form-control" placeholder="Ürün Adı Giriniz..." >
 	</div>
 
 <div style="min-height: 100vh">
 
-	<div ng-repeat="category in DemandForm_VM.categories"  >
-		<ng-include src="'views/subViews/menuDemandViewComponent.html'"></ng-include>
-	</div>
+	<!-- <div ng-repeat="category in DemandForm_VM.categories"> -->
+		<menu-demand-view-template></menu-demand-view-template>
+		<!-- <ng-include src="'views/subViews/menuDemandViewComponent.html'"></ng-include> -->
+	<!-- </div> -->
 </div>
 	
 	<hr>
 
-	<ng-include src="'views/subViews/menuDemandMyDemandsList.html'"></ng-include>
+	<!-- <ng-include src="'views/subViews/menuDemandMyDemandsList.html'"></ng-include> -->
+	<menu-demand-list-template></menu-demand-list-template>
 	
-	<ng-include src="'views/subViews/menuDemandAddProductModal.html'"></ng-include>
-
+	<!-- <ng-include src="'views/subViews/menuDemandAddProductModal.html'"></ng-include> -->
+	<add-product-modal-template></add-product-modal-template>
+	
 </div>
 

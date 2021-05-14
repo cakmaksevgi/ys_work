@@ -1,47 +1,49 @@
-﻿<div>
-	<div class="portlet-title wrap-floateds _{{category.Id}}" data-target="category.collapseId" id="{{category.UniqueName}}" data-toggle="collapse" data-parent="#accordion1" aria-expanded="true">
-		<div class="caption">
-			<h4 class="pull-left ">{{category.Name}}</h4>
-			<button id="addProduct" class="btn btn-orange" ng-click="DemandForm_VM.addNewProduct(category.Id)">
-				<i class="fa fa-plus"></i> ÜRÜN EKLE
-			</button>
+﻿<div ng-repeat="category in DemandForm_VM.categories">
+	<div>
+		<div class="portlet-title wrap-floateds _{{category.Id}}" data-target="category.collapseId" id="{{category.UniqueName}}" data-toggle="collapse" data-parent="#accordion1" aria-expanded="true">
+			<div class="caption">
+				<h4 class="pull-left ">{{category.Name}}</h4>
+				<button id="addProduct" class="btn btn-orange" ng-click="DemandForm_VM.addNewProduct(category.Id)">
+					<i class="fa fa-plus"></i> ÜRÜN EKLE
+				</button>
+			</div>
+			
+	
 		</div>
-		
-
-	</div>
-	<div id="collapseId" class="panel-collapse collapse in __{{category.Id}}" aria-expanded="true">
-		<div class="portlet-body">
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th width="35%">Ürün Adı</th>
-						<th width="35%">Açıklama</th>
-						<th width="15%" class="text-right">Mevcut Fiyat</th>
-						<th width="15%" class="text-center">Yeni Fiyat</th>
-					</tr>
-				</thead>
-				<tbody>
-
-					<tr ng-repeat="product in category.Products track by $index" ng-class="{'edit-field': product.isNewProduct, 'ifrowselected':product.demand.length > 0 && !product.wrongprice}" id="{{product.ProductId}}">
-						<td>
-							<span ng-bind="product.Name"></span>
-						</td>
-						<td ng-bind="product.Description"></td>
-						<td class="text-right">{{product.Price}} TL</td>
-						<td class="text-center" ng-hide="product.isNewProduct">
-							<div>
-								<input size="10" class="text-center" type="text" ng-model="product.newprice" ng-blur="DemandForm_VM.demandRequestBlur($event, product)" ng-change="DemandForm_VM.onDemandRequest(product)"/>
-							</div>
-						</td>
-
-						<td ng-show="product.isNewProduct">
-							<button id="editProduct" class="btn btn-blue pull-right" ng-click="DemandForm_VM.editDraftProduct(product)">
-								<i class="fa fa-pencil"></i> DÜZENLE
-							</button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+		<div id="collapseId" class="panel-collapse collapse in __{{category.Id}}" aria-expanded="true">
+			<div class="portlet-body">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th width="35%">Ürün Adı</th>
+							<th width="35%">Açıklama</th>
+							<th width="15%" class="text-right">Mevcut Fiyat</th>
+							<th width="15%" class="text-center">Yeni Fiyat</th>
+						</tr>
+					</thead>
+					<tbody>
+	
+						<tr ng-repeat="product in category.Products track by $index" ng-class="{'edit-field': product.isNewProduct, 'ifrowselected':product.demand.length > 0 && !product.wrongprice}" id="{{product.ProductId}}">
+							<td>
+								<span ng-bind="product.Name"></span>
+							</td>
+							<td ng-bind="product.Description"></td>
+							<td class="text-right">{{product.Price}} TL</td>
+							<td class="text-center" ng-hide="product.isNewProduct">
+								<div>
+									<input size="10" class="text-center" type="text" ng-model="product.newprice" ng-blur="DemandForm_VM.demandRequestBlur($event, product)" ng-change="DemandForm_VM.onDemandRequest(product)"/>
+								</div>
+							</td>
+	
+							<td ng-show="product.isNewProduct">
+								<button id="editProduct" class="btn btn-blue pull-right" ng-click="DemandForm_VM.editDraftProduct(product)">
+									<i class="fa fa-pencil"></i> DÜZENLE
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>

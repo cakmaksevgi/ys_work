@@ -1,3 +1,10 @@
+import menuListData from '../../data/menulist.json'
+import mainTemplate from "./mainView.html"
+
+import addProductModalTemplate from "../subViews/menuDemandAddProductModal.html"
+import menuDemandListTemplate from "../subViews/menuDemandMyDemandsList.html"
+import menuDemandViewTemplate from "../subViews/menuDemandViewComponent.html"
+
 'use strict';
 angular.module('productList', ['ngRoute'])
 
@@ -5,11 +12,96 @@ angular.module('productList', ['ngRoute'])
 	{
 		$routeProvider.when('/',
 		{
-			templateUrl: 'views/mainView/mainView.html',
+			template: mainTemplate,
 			controller: 'MenuDemandFormController'
 		});
 	}])
-	.controller('MenuDemandFormController', ["MenuDemandFormService", function (MenuDemandFormService)
+	.controller('MenuDemandFormController', MenuDemandFormController)
+	.service('MenuDemandFormService', ["$q", "$templateCache", function ($q, $templateCache)
+	{
+		// $templateCache.put('addProductModalTemplate', addProductModalTemplate);
+		// $templateCache.put('addProductModalTemplate', menuDemandListTemplate);
+		$templateCache.put('addProductModalTemplate', menuDemandViewTemplate);
+
+		var obj = {
+			getProducts: function ()
+			{
+				return menuListData;
+			},
+			updateProductsWithEditedOnes: function (products, demandRequestObjects)
+			{
+				var alreadyEditedProducts = localStorage.getItem("products");
+				if (alreadyEditedProducts)
+				{
+					try
+					{
+						alreadyEditedProducts = JSON.parse(alreadyEditedProducts);
+					}
+					catch (err)
+					{
+						alreadyEditedProducts = null;
+					}
+
+					if (alreadyEditedProducts)
+					{
+						alreadyEditedProducts.forEach(function (product)
+						{
+
+							var category = _.find(products, function (c) { return c.Id === product.categoryId; });
+							if (!category)
+							{
+								return;
+							}
+							var productAtCategory = _.find(category.Products, function (p) { return p.ProductId === product.ProductId; });
+
+							if (productAtCategory)
+							{
+								Object.assign(productAtCategory, product);
+								demandRequestObjects[product.ProductId] = productAtCategory;
+							}
+							else
+							{
+								category.Products.push(product);
+								demandRequestObjects[product.ProductId] = product;
+							}
+
+						});
+
+					}
+				}
+
+				return products;
+			},
+			saveProducts: function (products)
+			{
+				var deferred = $q.defer();
+				localStorage.setItem("products", JSON.stringify(products));
+				setTimeout(
+					function ()
+					{
+						deferred.resolve(true);
+					}, 500
+				);
+
+				return deferred.promise;
+
+			}
+		};
+		return obj;
+
+	}])
+	.component('menuDemandViewTemplate', 
+	{ 
+		template: menuDemandViewTemplate,
+		controller: MenuDemandFormController,
+		controllerAs: "DemandForm_VM"
+	})
+	.component('menuDemandListTemplate', {template: menuDemandListTemplate, controller: MenuDemandFormController, controllerAs: "DemandForm_VM",})
+	.component('addProductModalTemplate', {template: addProductModalTemplate, controller: MenuDemandFormController, controllerAs: "DemandForm_VM",});
+
+	MenuDemandFormController.$inject = [
+		'MenuDemandFormService'];
+	function MenuDemandFormController(MenuDemandFormService)
 	{
 		var vm = this;
 
@@ -326,86 +418,8 @@ angular.module('productList', ['ngRoute'])
 
 		}
 
-		MenuDemandFormService.getProducts().then(
-			function (response)
-			{
-				var products = response.data.Result;
-				products = MenuDemandFormService.updateProductsWithEditedOnes(products, vm.demandRequestObjects);
-				updateDemandLists();
-				vm.categories = products;
-			},
-			function () {
-
-			}
-		);
-
-	}])
-	.service('MenuDemandFormService', ["$q", "$http", function ($q, $http)
-	{
-		var obj = {
-			getProducts: function ()
-			{
-				return $http.get("data/menulist.json");
-			},
-			updateProductsWithEditedOnes: function (products, demandRequestObjects)
-			{
-				var alreadyEditedProducts = localStorage.getItem("products");
-				if (alreadyEditedProducts)
-				{
-					try
-					{
-						alreadyEditedProducts = JSON.parse(alreadyEditedProducts);
-					}
-					catch (err)
-					{
-						alreadyEditedProducts = null;
-					}
-
-					if (alreadyEditedProducts)
-					{
-						alreadyEditedProducts.forEach(function (product)
-						{
-
-							var category = _.find(products, function (c) { return c.Id === product.categoryId; });
-							if (!category)
-							{
-								return;
-							}
-							var productAtCategory = _.find(category.Products, function (p) { return p.ProductId === product.ProductId; });
-
-							if (productAtCategory)
-							{
-								Object.assign(productAtCategory, product);
-								demandRequestObjects[product.ProductId] = productAtCategory;
-							}
-							else
-							{
-								category.Products.push(product);
-								demandRequestObjects[product.ProductId] = product;
-							}
-
-						});
-
-					}
-				}
-
-				return products;
-			},
-			saveProducts: function (products)
-			{
-				var deferred = $q.defer();
-				localStorage.setItem("products", JSON.stringify(products));
-				setTimeout(
-					function ()
-					{
-						deferred.resolve(true);
-					}, 500
-				);
-
-				return deferred.promise;
-
-			}
-		};
-		return obj;
-
-	}]);
+		let products = MenuDemandFormService.getProducts().Result;
+		products = MenuDemandFormService.updateProductsWithEditedOnes(products, vm.demandRequestObjects);
+		updateDemandLists();
+		vm.categories = products;
+	}
