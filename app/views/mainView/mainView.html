@@ -5,7 +5,15 @@
 	</div>
 
 <div style="min-height: 100vh">
-
+	<div class="d-flex mb-2 justify-content-between" ng-hide="!DemandForm_VM.productSearchText" style="border-bottom: 1px solid #ddd;">
+		<span class="mt-1">Arama Sonuçları</span>
+		<div style="border-left: 4px solid">
+			<button class="btn" ng-click="DemandForm_VM.clearFilter()">
+				<i class="fas fa-arrow-left"></i>
+				<span>Ürün Listesine Geri Dön</span>
+			</button>
+		</div>
+	</div>
 	<menu-demand-view-template></menu-demand-view-template>
 	<!-- <div ng-repeat="category in DemandForm_VM.categories"> -->
 		<!-- <ng-include src="'views/subViews/menuDemandViewComponent.html'"></ng-include> -->

@@ -111,6 +111,7 @@ angular.module('productList', ['ngRoute'])
 
 		vm.submitForm = submitForm;
 		vm.filterProducts = filterProducts;
+		vm.clearFilter = clearFilter;
 
 		vm.isDemandExist = false;
 		vm.showDemandSummary = false;
@@ -457,6 +458,11 @@ angular.module('productList', ['ngRoute'])
 					})
 				}
 			});
+		}
+
+		function clearFilter() {
+			vm.productSearchText = '';
+			vm.filterProducts();
 		}
 
 		let products = MenuDemandFormService.getProducts().Result;
