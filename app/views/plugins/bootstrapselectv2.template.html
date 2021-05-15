@@ -1,7 +1,9 @@
 ﻿
 <div class="dropdown" style="min-width:{{configWidth || 100}}px;">
   
-    <button onclick="var that = this; setTimeout(function () { $(that.parentElement).find('#search-text').trigger('focus'); }, 1);" ng-class="{'disabled':!presentationData || presentationData.length === 0 }" class="btn btn-default dropdown-toggle text-left" type="button" id="menu1" data-toggle="dropdown" style="min-width:{{configWidth || 100}}px;" data-html="true">      
+    <button onclick="var that = this; setTimeout(function () { $(that.parentElement).find('#search-text').trigger('focus'); }, 1);" 
+    class="btn btn-default dropdown-toggle text-left" 
+    type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="min-width:{{configWidth || 100}}px;" data-html="true">      
         <span class="pull-left text-left" ng-if="!optionMultiSelect" style="width:{{(configWidth)?configWidth-30:70}}px;overflow:hidden;">            
 			{{(selectedItem !== null)?selectedItem.title:selectLabel}}
         </span>

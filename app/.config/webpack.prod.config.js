@@ -4,11 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
  module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
      index: './index.js'
    },
-  devtool: 'inline-source-map',
+  // devtool: 'inline-source-map',
   module: {
     rules: [
     {
@@ -32,12 +32,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
           }, 
           {
             loader: "css-loader",
-          },
-          {
-          loader: "postcss-loader",
-          options: {
-              sourceMap: true
-            },
           },
           {
           loader: "sass-loader",

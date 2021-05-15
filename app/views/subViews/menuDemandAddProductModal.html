@@ -12,7 +12,9 @@
 				<div class="row">
 					<div class="col-md-5">Menü Başlık</div>
 					<div class="col-md-7">
-						<bootstrapselect ng-if="DemandForm_VM.categoryIdToSelect" id="categorySelectBox" class="full-width" ng-model="DemandForm_VM.newProduct.categoryId" source-data="DemandForm_VM.categories" value-property="Id" title-property="Name" option-view-limit="10" option-selected-value="DemandForm_VM.newProduct.categoryId">
+						<bootstrapselect id="categorySelectBox" class="full-width" ng-model="DemandForm_VM.newProduct.categoryId"
+							source-data="DemandForm_VM.categories" value-property="Id" title-property="Name" option-view-limit="10"
+							option-selected-value="DemandForm_VM.newProduct.categoryId">
 						</bootstrapselect>
 					</div>
 				</div>

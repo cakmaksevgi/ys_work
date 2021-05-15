@@ -9,12 +9,11 @@
 
     bootstrapselect.$inject = ["$rootScope"];
 
-
     function bootstrapselect($rootScope) {
         var directive = {
             link: link,
             require: 'ngModel',
-            restrict: 'E',
+            restrict: 'EA',
             scope: {
                 optionViewLimit: "@optionViewLimit",
                 optionSelectedValue: "=optionSelectedValue",

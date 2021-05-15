@@ -117,7 +117,7 @@ angular.module('productList', ['ngRoute'])
 		vm.productSearchText = '';
 
 		var Product = {
-			priceValidationErrMsg: "Fiyat 1TL - 999,99TL arasında olmalıdır.",
+			priceValidationErrMsg: "Fiyat 1TL - 999,99TL arasında olmalıdır. Küsürat 2 haneden fazla olamaz.",
 
 			getProductIndexAtCategory: function (category, productId)
 			{
