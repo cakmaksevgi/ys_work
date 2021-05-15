@@ -1,4 +1,4 @@
-﻿var project = (function () {
+﻿const project = (function () {
 	var publicFunctions = {
 		
 		alert: {
@@ -172,6 +172,8 @@
 	
 	return publicFunctions;
 })();
+
+export default {projectHelper: project}
 
 String.prototype.turkishUpperCase = function () {
 	return this.replace(/ğ/g, 'Ğ')

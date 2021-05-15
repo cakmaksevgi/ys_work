@@ -1,5 +1,5 @@
 ﻿<div ng-repeat="category in DemandForm_VM.categories">
-	<div class="product-container">
+	<div class="product-container" ng-show="category.Shown">
 		<div id="{{category.UniqueName}}">
 			<div class="d-flex" id="collapse{{category.Id}}">
 				<button class="btn" data-toggle="collapse" data-target="#{{category.Id}}" aria-expanded="true" aria-controls="{{category.Id}}">
@@ -11,7 +11,7 @@
 			</div>
 	
 		</div>
-		<div id="{{category.Id}}" class="table-container mt-2 collapse in" aria-labelledby="collapse{{category.Id}}" data-parent="#{{category.UniqueName}}">
+		<div id="{{category.Id}}" ng-show="category.Shown" class="table-container mt-2 collapse in" aria-labelledby="collapse{{category.Id}}" data-parent="#{{category.UniqueName}}">
 			<div class="portlet-body">
 				<table class="table table-hover">
 					<thead>
@@ -20,21 +20,25 @@
 							<th width="35%">Açıklama</th>
 							<th width="15%" class="text-right">Mevcut Fiyat</th>
 							<th width="15%" class="text-center">
-								<span style="color: red">Yeni Fiyat</span>
+								<span class="red-text">Yeni Fiyat</span>
 							</th>
 						</tr>
 					</thead>
 					<tbody>
 	
-						<tr ng-repeat="product in category.Products track by $index" ng-class="{'edit-field': product.isNewProduct, 'ifrowselected':product.demand.length > 0 && !product.wrongprice}" id="{{product.ProductId}}">
+						<tr ng-repeat="product in category.Products track by $index" ng-show="product.Shown"
+							 ng-class="{'edit-field': product.isNewProduct, 'ifrowselected':product.demand.length > 0 && product.valid}" id="{{product.ProductId}}">
 							<td>
 								<span ng-bind="product.Name"></span>
 							</td>
 							<td ng-bind="product.Description"></td>
 							<td class="text-right">{{product.Price}} TL</td>
 							<td class="text-center" ng-hide="product.isNewProduct">
-								<div>
-									<input size="10" class="text-center" type="text" ng-model="product.newprice" ng-blur="DemandForm_VM.demandRequestBlur($event, product)" ng-change="DemandForm_VM.onDemandRequest(product)"/>
+								<div class="d-flex">
+									<input size="10" class="text-center col-md-10" type="text" ng-model="product.newprice" ng-blur="DemandForm_VM.demandRequestBlur($event, product)" ng-change="DemandForm_VM.onDemandRequest(product)"/>
+									<i class="fas fa-exclamation-circle red-text col-md-2 mt-2" ng-show="!product.valid && !!product.newprice"
+										title="{{DemandForm_VM.Product.priceValidationErrMsg}}">
+									</i>
 								</div>
 							</td>
 	

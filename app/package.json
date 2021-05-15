@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/cakmaksevgi/ys_work#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
     "angular": "1.7.5",
     "bootstrap": "^5.0.0",
     "express": "^4.17.1",

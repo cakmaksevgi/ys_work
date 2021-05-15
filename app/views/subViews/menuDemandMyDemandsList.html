@@ -9,7 +9,9 @@
 						<th width="35%">Ürün Adı</th>
 						<th width="35%">Açıklama</th>
 						<th width="15%" class="text-right">Mevcut Fiyat</th>
-						<th width="15%" class="text-center red-text">Yeni Fiyat</th>
+						<th width="15%" class="text-center red-text">
+							<span class="red-text">Yeni Fiyat</span>
+						</th>
 
 					</tr>
 				</thead>
@@ -29,7 +31,7 @@
 	</div>
 	<div class="sticky-box-opener">
 
-		<button class="btn pull-right" ng-click="DemandForm_VM.submitForm()">
+		<button class="btn float-end" ng-click="DemandForm_VM.submitForm()">
 			<span >KAYDET</span>
 		</button>
 		<button class="btn pull-left" ng-disabled="!DemandForm_VM.isDemandExist" ng-click="DemandForm_VM.showDemandSummary=(DemandForm_VM.showDemandSummary)?false:true;">

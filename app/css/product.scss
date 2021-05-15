@@ -1,4 +1,5 @@
 @import '../app.css';
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
 
 $ys-btn-bg-color: darkorange;
 $ys-btn-color: white;
@@ -17,10 +18,10 @@ $ys-border-color: 1px solid #ddd;
     border: 3px solid #ddddddc9;
 }
 .collapse:not(.in) {
-        display: none !important;
+        display: none;
 }
 .collapse.in {
-        display: block !important;
+        display: block;
 }
 .product-container {
     border: $ys-border-color;
@@ -56,5 +57,11 @@ button {
 }
 p {
     margin-bottom: 0;
+}
+.red-text {
+    color: red;
+}
+.float-end {
+    float: right;
 }
    

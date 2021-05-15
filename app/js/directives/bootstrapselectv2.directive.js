@@ -1,4 +1,6 @@
-﻿(function () {
+﻿import bootstrapSelectTemplate from "../../views/plugins/bootstrapselectv2.template.html"
+
+(function () {
     'use strict';
 
 	angular
@@ -29,10 +31,8 @@
                 onChange: "=onChange",
                 debug:"=debug"
             },
-            templateUrl: "/views/plugins/bootstrapselectv2.template.html?v=1"
+            template: bootstrapSelectTemplate
         };
-
-        return directive;
 
         function link(scope, element, attrs,ngModelCtrl) {
             
@@ -513,9 +513,8 @@
 
 
         }
+
+        return directive;
     }
-
-
-
 })();
 

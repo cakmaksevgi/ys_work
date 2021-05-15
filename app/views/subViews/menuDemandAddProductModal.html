@@ -20,15 +20,18 @@
 				<div class="row">
 					<div class="col-md-5">Ürün Adı</div>
 					<div class="col-md-7">
-						<input type="text" id="productName" placeholder="Ürün Adı Giriniz" ng-change="DemandForm_VM.onNewProductNameChange()" ng-model="DemandForm_VM.newProduct.name" />
+						<input type="text" id="productName" placeholder="Ürün Adı Giriniz" ng-change="DemandForm_VM.Product.onNewProductNameChange()" ng-model="DemandForm_VM.newProduct.name" />
 					</div>
 				</div>
 
 				<div class="row">
 					<div class="col-md-5">Fiyat</div>
 					<div class="col-md-7">
-						<input type="text" id="productPrice" ng-model="DemandForm_VM.newProduct.price" />
+						<input type="text" id="productPrice" ng-model="DemandForm_VM.newProduct.price" ng-blur="DemandForm_VM.Product.priceInputValidationCheck(DemandForm_VM.newProduct, true)" />
 						<span>TL</span>
+						<i class="fas fa-exclamation-circle red-text" ng-show="!DemandForm_VM.newProduct.valid && !!DemandForm_VM.newProduct.price"
+							 title="{{DemandForm_VM.Product.priceValidationErrMsg}}">
+						</i>
 					</div>
 				</div>
 
@@ -43,8 +46,9 @@
 
 				<div class="row">
 					<div class="col-md-12">
-						<div class="pull-right">
-							<button id="createProduct" class="btn btn-orange" ng-disabled="!DemandForm_VM.newProduct.name || !DemandForm_VM.newProduct.price" ng-click="DemandForm_VM.saveDraftProduct()">
+						<div style="float: right;">
+							<button id="createProduct" class="btn btn-orange" 
+								ng-disabled="!DemandForm_VM.newProduct.name || !DemandForm_VM.newProduct.price || !DemandForm_VM.newProduct.valid" ng-click="DemandForm_VM.saveDraftProduct()">
 								<i ng-show="!DemandForm_VM.editingDraft" class="fa fa-plus"></i>
 								<span ng-show="!DemandForm_VM.editingDraft">ÜRÜN EKLE</span>
 								<span ng-show="DemandForm_VM.editingDraft">ÜRÜNÜ GÜNCELLE</span>

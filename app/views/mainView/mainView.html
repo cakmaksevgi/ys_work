@@ -1,13 +1,13 @@
 <div ng-cloak ng-controller="MenuDemandFormController as DemandForm_VM" class="px-3">
 
 	<div id="searchBox" style="margin: 20px 0">
-		<input type="text" id="stbox" class="form-control" placeholder="Ürün Adı Giriniz..." >
+		<input type="text" id="stbox" class="form-control" placeholder="Ürün Adı Giriniz..." ng-model="DemandForm_VM.productSearchText" ng-change="DemandForm_VM.filterProducts()">
 	</div>
 
 <div style="min-height: 100vh">
 
+	<menu-demand-view-template></menu-demand-view-template>
 	<!-- <div ng-repeat="category in DemandForm_VM.categories"> -->
-		<menu-demand-view-template></menu-demand-view-template>
 		<!-- <ng-include src="'views/subViews/menuDemandViewComponent.html'"></ng-include> -->
 	<!-- </div> -->
 </div>

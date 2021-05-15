@@ -17,12 +17,8 @@ angular.module('productList', ['ngRoute'])
 		});
 	}])
 	.controller('MenuDemandFormController', MenuDemandFormController)
-	.service('MenuDemandFormService', ["$q", "$templateCache", function ($q, $templateCache)
+	.service('MenuDemandFormService', ["$q", function ($q)
 	{
-		// $templateCache.put('addProductModalTemplate', addProductModalTemplate);
-		// $templateCache.put('addProductModalTemplate', menuDemandListTemplate);
-		$templateCache.put('addProductModalTemplate', menuDemandViewTemplate);
-
 		var obj = {
 			getProducts: function ()
 			{
@@ -114,11 +110,15 @@ angular.module('productList', ['ngRoute'])
 		vm.demandRequestObjects = {};
 
 		vm.submitForm = submitForm;
+		vm.filterProducts = filterProducts;
 
 		vm.isDemandExist = false;
 		vm.showDemandSummary = false;
+		vm.productSearchText = '';
 
 		var Product = {
+			priceValidationErrMsg: "Fiyat 1TL - 999,99TL arasında olmalıdır.",
+
 			getProductIndexAtCategory: function (category, productId)
 			{
 				var index = -1;
@@ -229,6 +229,16 @@ angular.module('productList', ['ngRoute'])
 					$("#" + product.ProductId).pulsate({ repeat: 3, color: '#26C281' });
 				}, 200);
 
+			},
+
+			priceInputValidationCheck: function(product, isNew) {
+				const regexRule = /^\d{1,3}([,.]\d{1,2})*$/;
+				const property = isNew ? "price" : "newprice";
+				product.valid = !!product[property].match(regexRule) && parseInt(product[property]) > 0;
+			},
+
+			onNewProductNameChange: function() {
+				vm.newProduct.valid = !!vm.newProduct.name
 			}
 		};
 
@@ -236,7 +246,7 @@ angular.module('productList', ['ngRoute'])
 
 		function addNewProduct (categoryId)
 		{
-			vm.newProduct = { isNewProduct: true, id: Product.getNextProductId(categoryId), name: "", price: "", description: "", categoryId: categoryId };
+			vm.newProduct = { isNewProduct: true, id: Product.getNextProductId(categoryId), name: "", price: "", description: "", categoryId: categoryId, valid: false };
 			vm.categoryIdToSelect = categoryId;
 
 			vm.editingDraft = false;
@@ -374,7 +384,9 @@ angular.module('productList', ['ngRoute'])
 				return;
 			}
 
-			if (!newprice || newprice === '0')
+			vm.Product.priceInputValidationCheck(productObject)
+
+			if (!newprice || newprice === '0' || !productObject.valid)
 			{
 				var productOnRequestObjects = vm.demandRequestObjects[productObject.ProductId];
 
@@ -416,6 +428,35 @@ angular.module('productList', ['ngRoute'])
 
 				});
 
+		}
+
+		function filterProducts() {
+			const searchText = vm.productSearchText.toLowerCase();
+			vm.categories.forEach(cat => {
+				if(!!searchText) {
+					let notMatchedProducts = cat.Products.filter(p => p.Name.toLowerCase().indexOf(searchText) < 0);
+					if(notMatchedProducts.length == cat.Products.length) {
+						cat.Shown = false;
+						notMatchedProducts.forEach(prod => {
+							prod.Shown = true;
+						})
+					} else {
+						if(notMatchedProducts.length == 0) {
+							cat.Shown = false;
+						} else {
+							cat.Shown = true;
+							notMatchedProducts.forEach(prod => {
+								prod.Shown = false;
+							})
+						}
+					}
+				} else {
+					cat.Shown = true;
+					cat.Products.forEach(prod => {
+						prod.Shown = true;
+					})
+				}
+			});
 		}
 
 		let products = MenuDemandFormService.getProducts().Result;

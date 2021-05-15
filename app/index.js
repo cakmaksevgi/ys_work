@@ -13,6 +13,8 @@ import "bootstrap/dist/js/bootstrap.bundle"
 
 // get app.js and start application
 import "./app.js"
+import projectHelper from "./js/plugins/helper"
+window.project = projectHelper.projectHelper;
 
 // get mainView and show application
 import "./views/mainView/mainView"
